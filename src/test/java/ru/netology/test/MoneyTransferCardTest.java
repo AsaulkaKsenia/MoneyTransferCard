@@ -36,8 +36,8 @@ public class MoneyTransferCardTest {
         int sum = 5000;
         var balanceForFirstCard = dashboardPage.getCardBalance(firstCard) - sum;
         var balanceForSecondCard = dashboardPage.getCardBalance(secondCard) + sum;
-        var moneytransferCard = dashboardPage.chooseCardForTransfer(secondCard);
-        dashboardPage = moneytransferCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), firstCard);
+        var moneyTransferCard = dashboardPage.chooseCardForTransfer(secondCard);
+        dashboardPage = moneyTransferCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), firstCard);
         var actualBalanceForFirstCard = dashboardPage.getCardBalance(firstCard);
         var actualBalanceForSecondCard = dashboardPage.getCardBalance(secondCard);
         assertEquals(balanceForFirstCard, actualBalanceForFirstCard);
@@ -54,8 +54,8 @@ public class MoneyTransferCardTest {
         int sum = 15000;
         var balanceForFirstCard = dashboardPage.getCardBalance(secondCard) - sum;
         var balanceForSecondCard = dashboardPage.getCardBalance(firstCard) + sum;
-        var moneytransferForCard = dashboardPage.chooseCardForTransfer(firstCard);
-        dashboardPage = moneytransferForCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), secondCard);
+        var moneyTransferForCard = dashboardPage.chooseCardForTransfer(firstCard);
+        dashboardPage = moneyTransferForCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), secondCard);
         var actualBalanceForFirstCard = dashboardPage.getCardBalance(secondCard);
         var actualBalanceForSecondCard = dashboardPage.getCardBalance(firstCard);
         assertEquals(balanceForFirstCard, actualBalanceForFirstCard);
@@ -71,8 +71,8 @@ public class MoneyTransferCardTest {
         int sum = 500;
         var balanceForFirstCard = dashboardPage.getCardBalance(secondCard) - sum;
         var balanceForSecondCard = dashboardPage.getCardBalance(firstCard) + sum;
-        var moneytransferForCard = dashboardPage.chooseCardForTransfer(firstCard);
-        dashboardPage = moneytransferForCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), secondCard);
+        var moneyTransferForCard = dashboardPage.chooseCardForTransfer(firstCard);
+        dashboardPage = moneyTransferForCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), secondCard);
         var actualBalanceForFirstCard = dashboardPage.getCardBalance(secondCard);
         var actualBalanceForSecondCard = dashboardPage.getCardBalance(firstCard);
         assertEquals(balanceForFirstCard, actualBalanceForFirstCard);
