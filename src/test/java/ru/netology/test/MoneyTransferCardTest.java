@@ -62,13 +62,24 @@ public class MoneyTransferCardTest {
         assertEquals(balanceForSecondCard, actualBalanceForSecondCard);
 
     }
-
     @Test
-    void shouldTransferFromTheSecondCardToTheFirstOverLimit() {
+    void shouldTransferFromTheFirstCardToTheFirstCar() {
+        DashboardPage dashboardPage = login();
+        var firstCard = getFirstCardInfo();
+        int sum = 500;
+        var balanceForFirstCard = dashboardPage.getCardBalance(firstCard) - sum + sum;
+        var moneyTransferCard = dashboardPage.chooseCardForTransfer(firstCard);
+        dashboardPage = moneyTransferCard.MoneyTransfer(Integer.parseInt(String.valueOf(sum)), firstCard);
+        var actualBalanceForFirstCard = dashboardPage.getCardBalance(firstCard);
+        assertEquals(balanceForFirstCard, actualBalanceForFirstCard);
+
+    }
+    @Test
+    void shouldTransferZeroAmount() {
         DashboardPage dashboardPage = login();
         var firstCard = getFirstCardInfo();
         var secondCard = getSecondCardInfo();
-        int sum = 500;
+        int sum = 0;
         var balanceForFirstCard = dashboardPage.getCardBalance(secondCard) - sum;
         var balanceForSecondCard = dashboardPage.getCardBalance(firstCard) + sum;
         var moneyTransferForCard = dashboardPage.chooseCardForTransfer(firstCard);
